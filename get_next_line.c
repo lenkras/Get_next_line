@@ -6,7 +6,7 @@
 /*   By: epolkhov <epolkhov@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:46:12 by epolkhov          #+#    #+#             */
-/*   Updated: 2023/12/21 18:39:45 by epolkhov         ###   ########.fr       */
+/*   Updated: 2023/12/28 17:38:54 by epolkhov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ char	*get_next_line(int fd)
 	line = find_line(buffer);
 	buffer = getrest_of_file(buffer);
 	if (!line || !buffer)
-	{
-		free (buffer);
-		buffer = NULL;
-	}
+		ft_free(&buffer);
 	return (line);
 }
 

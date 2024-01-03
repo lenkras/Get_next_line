@@ -6,7 +6,7 @@
 /*   By: epolkhov <epolkhov@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:19:40 by epolkhov          #+#    #+#             */
-/*   Updated: 2023/12/21 18:43:01 by epolkhov         ###   ########.fr       */
+/*   Updated: 2023/12/28 13:54:13 by epolkhov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	str = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (!str)
-		return (ft_free(&s1), ft_free(&s2));
+	{
+		free (s1);
+		free (s2);
+		return (NULL);
+	}
 	while (s1 && s1[i])
 	{
 		str[i] = s1[i];
@@ -43,7 +47,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		str[i++] = s2[j++];
 	}
 	str[i] = '\0';
-	free(s1);
+	free (s1);
 	return (str);
 }
 
